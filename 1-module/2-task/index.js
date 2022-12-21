@@ -15,6 +15,7 @@ function isValid(name) {
   if ( name.includes(' ') ) return false;
   if ( name.length < 4 )  return false;
   return true;
+  // return  !(( typeof name != 'string' ) || ( name.includes(' ') ) || ( name.length < 4 ) || false);
 }
 
 function sayHello() {
