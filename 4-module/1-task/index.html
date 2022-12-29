@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Занятие 4: Список друзей</title>
   </head>
 
@@ -21,8 +22,11 @@
           lastName: 'Michael'
         }
       ];
-
+      
+      document.body.insertAdjacentHTML('beforeend', '<h3>Вариант 1</h3>');
       document.body.appendChild(makeFriendsList(friends));
+      document.body.insertAdjacentHTML('beforeend', '<h3>Вариант 2</h3>');
+      document.body.appendChild(makeFriendsList2(friends));
     </script>
   </body>
 </html>
