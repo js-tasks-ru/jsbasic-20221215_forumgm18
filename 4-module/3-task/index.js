@@ -20,7 +20,7 @@ function highlight(table) {
         row.classList.add('unavailable');
         break;
       default: 
-        row.setAttribute('hidden', '');
+        row.hidden = true;
     }
 
   };
