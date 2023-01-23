@@ -7,15 +7,20 @@ export default class ProductCard {
     this.#product = product;
 
     const imgPath = '/assets/images/products/';
-    let {name, price, category, image, id} = product;
+    // let {name, price, category, image, id} = product;
+    let dataStr = ''
+    for(let key in product) {
+      if (key != 'image') dataStr = `${dataStr} data-product-${key}="${product[key]}" `
+    }
+
     this.#cardNode = createElement(`
-        <div class="card" data-product-id="${id} data-product-category="${category}">
+        <div class="card" ${dataStr.trim()}>
           <div class="card__top">
-            <img src="${imgPath + image}" class="card__image" alt="product">
-            <span class="card__price">${this.#currency + price.toFixed(2)}</span>
+            <img src="${imgPath + product.image}" class="card__image" alt="product">
+            <span class="card__price">${this.#currency + product.price.toFixed(2)}</span>
           </div>
           <div class="card__body">
-            <div class="card__title">${name}</div>
+            <div class="card__title">${product.name}</div>
             <button type="button" class="card__button" data-card-button>
               <img src="/assets/images/icons/plus-icon.svg" alt="icon">
             </button>
