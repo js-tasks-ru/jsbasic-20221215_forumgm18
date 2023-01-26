@@ -4,6 +4,7 @@ export default class Modal {
   #modal;
   #modalTitle;
   #modalBody;
+  #isOpen = false;
   constructor() {
     let modalInner = createElement('<div class="modal__inner"></div>');
     let modalHeader = createElement('<div class="modal__header"><button type="button" class="modal__close" data-modal-close><img src="/assets/images/icons/cross-icon.svg" alt="close-icon" /></button></div>');
@@ -17,6 +18,9 @@ export default class Modal {
   }
   get elem() { 
     return this.#modal;
+  }
+  get elemBody() { 
+    return this.#modalBody;
   }
 
   setTitle(str) { 
@@ -44,12 +48,17 @@ export default class Modal {
     };
     
     document.addEventListener('keydown', this._keyDownEventListener);
+    this.#isOpen = true;
+
   }
   close() {
     document.body.classList.remove('is-modal-open');
     document.removeEventListener('keydown', this._keyDownEventListener);
     this.elem.remove();
+    this.#isOpen = false;
   }
+
+  get isOpen() {return this.#isOpen;};
 
 }
 
