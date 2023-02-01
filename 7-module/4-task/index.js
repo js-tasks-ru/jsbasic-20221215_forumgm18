@@ -28,6 +28,7 @@ export default class StepSlider {
     this.#sliderRoot.append(this.#sliderThumbs, this.#sliderProgress, this.#sliderSteps);
   }
   get elem() {return this.#sliderRoot;}
+  get value() {return this.#currentValue;}
   get currentOffset() { return this.#offsetPercent(this.#currentValue + 1, this.#config.steps) ;}
 
   #offsetPercent(val, steps) {
